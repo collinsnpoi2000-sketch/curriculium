@@ -21,6 +21,115 @@ fruits.splice(1, 1);     console.log(fruits); // remove 1 item at index 1 ("mang
 const mixed = ["Ada", 25, true, null]; // any types
 console.log(mixed);
 
+
+//Arrays
+const students = ["caleb", "zina", "elvis", "vure", "vera", "emma", "favour"];
+// key(index number) and value pair
+// 0: "caleb"
+// 1: "zina"
+students[0]; // "caleb"
+students[1]; //"zina"
+
+students[5]; //"emma"
+students[students.length]; // students[7]
+students[students.length -1]; // students[7]
+students.at(-1);
+
+const items = [true, 500, "leah", null, 81, false, "joshua", ["saviour", 22, undefined,"101"], {age: 45}, ["caleb"] ];
+items[7][0]; // "saviour"
+items[3];
+
+// how to add and remove elements/items to an array
+items.push("ADA"); // add an item to the end of an array
+items.pop(); // remove an item from the end of an array
+items.unshift("3789"); // add item to the start / beginning of an array
+items.shift(); // removes an item to the start / beginning of an array
+items.splice()
+
+const deleteditems = items.splice(1,2);
+
+const evenNumbers = [2, 4, 6, 8];
+const newnumbs = evenNumbers; // this referencing an array and not copying an array
+newnumbs.push(10); // [2, 4, 6, 8, 10]
+console.log(evenNumbers) // [2, 4, 6, 8, 10]
+
+
+// copying an array
+const copyOfEven = [...evenNumbers]; // ... is called spread operator
+copyOfEven.push(12);
+console.log(evenNumbers); // [2, 4, 6, 8, 10]
+console.log(copyOfEven); // [2, 4, 6, 8, 10, 12]
+
+
+// forEach & map
+// use forEach() if you want to perform an action without generating a anew array
+// us map() if you want to transform an array and generate a new array
+const names = ["Ada", "Bola", "Ezekiel"]
+names.forEach(name => {
+  console.log(`welcome, ${name}`);
+})
+
+const itemPrices = [122,340, 20];
+const newPrices = itemPrices.map(price => {
+  return price * 2;
+});
+console.log(newPrices); // [122,340, 20]
+
+// filter
+const cart = [23, 56, 87, 11, 5, 33, 60, 45];
+cart.filter(item => {
+  return item <= 50;
+});
+// [23, 11, 5, 33, 45]
+
+// Arrays of objects
+const shoppingCart =[
+  {name:"palm oil", price:3000, qty: 4, available: true},
+  {name:"honey", price:5000, qty: 6, available: true},
+  {name:"lotion", price:1800, qty: 4, available: false},
+  {name:"apple", price:600, qty: 2, available: true},
+  {name:"car battery", price:38000, qty: 1, available: false},
+]
+
+shoppingCart[2].name; // "lotion"
+
+const availableitems = shoppingCart.filter(item => item.available).map(item => item.name);
+console.log(availableitems); // ["palm oil", "honey", "apple"]
+
+
+sales.forEach((product) =>{
+  console.log(`${product.item}: ${product.qty} sold`);
+})
+
+//2.
+const revenues = sales.map((product) => {
+  return product.price * product.qty;
+})
+console.log("revenues:", revenues); //[102000, 44000, 27000, 29400, 0]
+
+const unsold = sales.filter((product) => {
+  return product.qty === 0;
+})
+
+console.log("unsold", unsold);
+
+const totalRevenue = sales.reduce((sum, product) => {
+  sum + (product.price * product.qty)
+  return sum
+}, 0);
+console.log("Total revenue:", totalRevenue); //202400
+
+
+const bigEarners = sales
+.filter((product) => (product.price * product.qty) > 3000)
+.map((product) => product.item);
+console.log("over #30,000:", bigEarners);
+
+
+
+
+
+
 // ---------- Demo 2: Arrays are references ----------
 const a = [1, 2, 3];
 const b = a;        // same array, two labels

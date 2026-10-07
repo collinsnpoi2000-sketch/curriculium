@@ -1,0 +1,104 @@
+
+
+
+
+
+const car = {
+    model: "2025",
+    tyres: 4,
+    colour: "black",
+    move: function() {
+        console.log("moving!")
+    },
+    "engine model": "v8",
+    features:["bullet-proof", "4WD", "proximity-sensor"],
+    displaycardetailes(type) {
+        return `this is a ${type} ${this.model} car`;
+    },
+    myCars: {
+        car1: "mercedes",
+        car2: "BMW",
+        car3: "Buggati"
+    }
+}
+
+// Acessing an object
+car.colour; //"black"
+car.model; //"2025"
+car.move(); // "moving"
+car["engine model"]; //V8
+car.features[1]; // 4WD
+console.log(car.displaycardetailes("SUV")); // this is an SUV 2025 car
+car.features.push("manual");
+  car.myCars.car3; // "Buggati"
+  car["myCars"].car2; // "BMW"
+  car["myCars"]["car1"]; // "mercedes"
+
+
+// adding to the object
+car.mileage = 344000
+
+// update an object property
+car.model = "2026";
+console.log(car);
+
+// looping over objects
+const studentsScores = {
+    maths: 80,
+    english: 56,
+    physics: 65,
+    biology: 39,
+    chemistry: 21,
+    studentBio: {
+        name: "vure",
+        class: "SS2",
+        "class arm": "B"
+    }
+};
+
+Object.keys(studentsScores); //[maths, english, physics, biology, chemistry]
+Object.values(studentsScores); // [80, 56, 65, 39, 21]
+Object.entries(studentsScores); // []
+delete studentsScores.physics;
+console.log(studentsScores);
+
+let studentsresults = studentsScores.studentBio.name + " scored " + studentsScores.english + "in English"
+console.log(studentsresults);
+
+// Destructuring onjects
+const {maths, english, physics} =studentsScores; //destructuring
+console.log(maths, english, physics);
+let myReult = studentsScores.studentBio.name + "scored" + maths +"Maths,"
+console.log(myReult);
+
+// updating without mutating
+const user = {
+    name: "michael",
+    age: 37,
+    address: {
+        lga: "khana",
+        town: "Bori",
+    },
+    married: true
+}
+user.age = 50;
+const oldUser = user; // referencing
+oldUser.name = "joshua";
+const copyUser = {...user}; //copying the user object
+copyUser.age = 98;
+console.log(copyUser);
+const updatedUser = {...user, age: 40}
+console.log(updatedUser);
+console.log(user);
+
+
+
+
+function show() {
+    return "available";
+}
+show();
+
+const sendText = function() {
+
+}
